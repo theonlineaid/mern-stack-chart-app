@@ -86,9 +86,9 @@ const authCtrl = {
             const { userName, password } = req.body;
 
             const user = await User.findOne({ userName });
-            const isPasswordCurrect = await bcrypt.compare(password, user?.password || "")
+            const isPasswordCorrect = await bcrypt.compare(password, user?.password || "")
 
-            if (!user || !isPasswordCurrect) {
+            if (!user || !isPasswordCorrect) {
                 res.status(400).json({ error: "Invalid user" });
             }
 
